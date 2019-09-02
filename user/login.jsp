@@ -8,7 +8,7 @@
 <body>
 	<div id="wapper">
 		<header>
-			<jsp:include page="top.jsp" flush="false"/>
+			<jsp:include page="../top.jsp" flush="false"/>
 		</header>
 		<section style="height: 70%;">
 			<div class="content">
@@ -16,7 +16,7 @@
 			</div>
 		</section>
 		<footer>
-			<jsp:include page="footer.jsp" flush="false"/>
+			<jsp:include page="../footer.jsp" flush="false"/>
 		</footer>
 	</div>
 </body>

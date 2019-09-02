@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" type="text/css" href="main.css"/>
 <ul class="top_ul">
-	<li class="toplogo"><a href="/">logo</a></li>
+	<li class="toplogo"><a href="main.jsp">logo</a></li>
 	<li class="topli"><a href="*">first</a></li>
 	<li class="topli"><a href="*">second</a></li>
 	<li class="topli"><a href="*">third</a></li>
