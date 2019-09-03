@@ -80,7 +80,12 @@ section {
 	vertical-align: middle;
 	width: 100%;
 	margin-top: 5%;
-	margin-bottom: 15%;
+	margin-bottom: 45%;
+}
+
+.labelText {
+	text-align: left; 
+	margin-left: 3%;
 }
 </style>
 <body>
@@ -96,26 +101,38 @@ section {
 						<p>등록된 개인정보는 회원님의 동의 없이 공개되지 않습니다.</p>
 						<hr>
 						
-						<label for="uname"><b>이름</b></label> 
+						<div class="labelText">
+							<label for="uname"><b>이름</b></label>
+						</div> 
 						<input type="text" placeholder="이름을 입력하세요." name="uname" required> 
-						<label for="userid"><b>아이디</b></label> 
+						<div class="labelText">
+							<label for="userid"><b>아이디</b></label>
+						</div> 
 						<input type="text" placeholder="아이디를 입력하세요." name="userid" required> 
-						<label for="psw"><b>비밀번호</b></label> 
+						<div class="labelText">
+							<label for="psw"><b>비밀번호</b></label>
+						</div> 
 						<input type="password" placeholder="비밀번호를 입력하세요." name="upassword" required> 
-						<label for="psw-repeat"><b>비밀번호 확인</b></label> 
+						<div class="labelText">
+							<label for="psw-repeat"><b>비밀번호 확인</b></label>
+						</div> 
 						<input type="password" placeholder="비밀번호를 다시 입력해주세요." name="psw-repeat" required>
-						<label for="uaddress"><b>주소</b></label> 
+						<div class="labelText">
+							<label for="uaddress"><b>주소</b></label>
+						</div> 
 						<input type="text" placeholder="주소를 입력하세요." name="uaddress" required> 
-						<label for="utelnum"><b>전화번호</b></label> 
+						<div class="labelText">
+							<label for="utelnum"><b>전화번호</b></label>
+						</div> 
 						<input type="text" placeholder="전화번호를 입력하세요." name="utelnum" required> 
 						
 						<hr>
-						<button type="submit" class="registerbtn">Register</button>
+						<button type="submit" class="registerbtn">가입하기</button>
 					</div>
 
 					<div class="container signin">
 						<p>
-							Already have an account? <a href="login.jsp">Sign in</a>.
+							Already have an account? <a href="login.jsp">LOGIN</a>.
 						</p>
 					</div>
 				</form>
