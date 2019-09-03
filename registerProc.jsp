@@ -32,19 +32,20 @@
 		if(rs == null){
 			pstmt.close();
 			pstmt = null;
-			sql = "insert into users values(?, ?, ?, ?, ?, member)";
+			sql = "insert into users values(?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userid);
 			pstmt.setString(2, uname);
 			pstmt.setString(3, upassword);
 			pstmt.setString(4, uaddress);
 			pstmt.setString(5, utelnum);
+			pstmt.setString(6, "member");
 			su = pstmt.executeUpdate();
 		}//rs == null
 	} catch(Exception e){
 		e.printStackTrace();
 		su = 0;
-	} finally {
+	} finally {		
 		if(rs != null){
 			try{ rs.close(); } catch(Exception e){ }
 		}//if
@@ -56,5 +57,13 @@
 		if(conn != null){
 			try{ conn.close(); } catch(Exception e){ }
 		}//if
+		
+		if(su == 1){
+			out.println("<script>alert('회원가입이 성공적으로 되었습니다!');</script>");
+			out.println("<script>location.href = 'login.jsp';</script>");
+		} else {
+			out.println("<script>alert('회원가입에 실패하였습니다....');</script>");
+			out.println("<script>location.href = 'register.jsp';</script>");
+		}
 	}
 %>
