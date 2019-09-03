@@ -163,11 +163,11 @@ section {
 						<div class="labelText" style="margin-top: 5px;">
 							<label for="uaddress"><b>주소</b></label>
 						</div> 
-						<input type="text" placeholder="주소를 입력하세요." name="uaddress" required> 
+						<input type="text" placeholder="주소를 입력하세요." name="uaddress"> 
 						<div class="labelText">
 							<label for="utelnum"><b>전화번호</b></label>
 						</div> 
-						<input type="text" placeholder="전화번호를 입력하세요." name="utelnum" required> 
+						<input type="text" placeholder="전화번호를 입력하세요." name="utelnum"> 
 						
 						<hr>
 						<button type="submit" class="registerbtn" id="submit">가입하기</button>

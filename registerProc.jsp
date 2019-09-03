@@ -5,20 +5,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	request.setCharacterEncoding("UTF-8");
+	String userid = request.getParameter("userid");
+	String uname = request.getParameter("uname");
+	String upassword = request.getParameter("upassword");
+	String uaddress = request.getParameter("uaddress");
+	String utelnum = request.getParameter("utelnum");
+
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
+	int su = 0;
 	
 	try {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "mirim3501";
 		String pass = "3501";
-		int su;
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		DriverManager.getConnection(url, user, pass);
-		out.println("연결성공");
+		
+		String sql = "select userid from users";
+		pstmt = conn.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+		
+		if(rs == null){
+			pstmt.close();
+			pstmt = null;
+			sql = "insert into users values(?, ?, ?, ?, ?, member)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userid);
+			pstmt.setString(2, uname);
+			pstmt.setString(3, upassword);
+			pstmt.setString(4, uaddress);
+			pstmt.setString(5, utelnum);
+			su = pstmt.executeUpdate();
+		}//rs == null
 	} catch(Exception e){
-		out.println("연결실패");
+		e.printStackTrace();
+		su = 0;
+	} finally {
+		if(rs != null){
+			try{ rs.close(); } catch(Exception e){ }
+		}//if
+		
+		if(pstmt != null){
+			try{ pstmt.close(); } catch(Exception e){ }
+		}//if
+		
+		if(conn != null){
+			try{ conn.close(); } catch(Exception e){ }
+		}//if
 	}
 %>
