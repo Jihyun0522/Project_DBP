@@ -79,15 +79,56 @@ section {
 	text-align: center;
 	vertical-align: middle;
 	width: 100%;
-	margin-top: 5%;
-	margin-bottom: 45%;
+	margin-top: 3%;
+	margin-bottom: 30%;
+}
+
+.content form {
+	border: 3px solid #f1f1f1;
+	text-align: center;
+	vertical-align: middle;
 }
 
 .labelText {
 	text-align: left; 
 	margin-left: 3%;
 }
+
+.alert {
+	padding: 5px;
+	margin: 5px 20px;
+	border-radius: 5px;
+}
+
+.alert-success {
+	background: #a5e8ba;
+}
+
+.alert-danger {
+	background: #ffabab;
+}
 </style>
+<script>
+	$(document).ready(function(){
+		$("#alert-success").hide();
+		$("#alert-danger").hide();
+		$("input").keyup(function(){
+            var pwd1=$("#pwd1").val();
+            var pwd2=$("#pwd2").val();
+            if(pwd1 != "" || pwd2 != ""){
+                if(pwd1 == pwd2){
+                    $("#alert-success").show();
+                    $("#alert-danger").hide();
+                    $("#submit").removeAttr("disabled");
+                }else{
+                    $("#alert-success").hide();
+                    $("#alert-danger").show();
+                    $("#submit").attr("disabled", "disabled");
+                }    
+            }
+        });
+	});
+</script>
 <body>
 	<div id="wapper">
 		<header>
@@ -95,7 +136,7 @@ section {
 		</header>
 		<section>
 			<div class="content">
-				<form action="registerProc.jsp">
+				<form action="registerProc.jsp" method="post">
 					<div class="container">
 						<h1>회원가입</h1>
 						<p>등록된 개인정보는 회원님의 동의 없이 공개되지 않습니다.</p>
@@ -112,12 +153,14 @@ section {
 						<div class="labelText">
 							<label for="psw"><b>비밀번호</b></label>
 						</div> 
-						<input type="password" placeholder="비밀번호를 입력하세요." name="upassword" required> 
+						<input type="password" placeholder="비밀번호를 입력하세요." name="upassword" id="pwd1" required> 
 						<div class="labelText">
 							<label for="psw-repeat"><b>비밀번호 확인</b></label>
 						</div> 
-						<input type="password" placeholder="비밀번호를 다시 입력해주세요." name="psw-repeat" required>
-						<div class="labelText">
+						<input type="password" placeholder="비밀번호를 다시 입력해주세요." name="psw-repeat" id="pwd2" required>
+						<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+						<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+						<div class="labelText" style="margin-top: 5px;">
 							<label for="uaddress"><b>주소</b></label>
 						</div> 
 						<input type="text" placeholder="주소를 입력하세요." name="uaddress" required> 
@@ -127,7 +170,7 @@ section {
 						<input type="text" placeholder="전화번호를 입력하세요." name="utelnum" required> 
 						
 						<hr>
-						<button type="submit" class="registerbtn">가입하기</button>
+						<button type="submit" class="registerbtn" id="submit">가입하기</button>
 					</div>
 
 					<div class="container signin">

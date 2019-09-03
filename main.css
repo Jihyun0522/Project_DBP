@@ -3,10 +3,6 @@
     box-sizing: border-box;
 }
 
-section {
-	background: #f7f7f7;
-}
-
 /* topMenu */
 .top_ul {
     list-style-type: none;
