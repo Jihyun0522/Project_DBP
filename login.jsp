@@ -61,6 +61,7 @@ section {
 	vertical-align: middle;
 	height: 75%;
 	width: 100%;
+	margin-top: 15%;
 }
 
 .content form {
@@ -75,7 +76,6 @@ section {
 			<jsp:include page="top.jsp" flush="false" />
 		</header>
 		<section>
-			<div style="height: 15%"></div>
 			<div class="content">
 				<form action="loginPost.jsp" method="post" >
 					<div class="container">
