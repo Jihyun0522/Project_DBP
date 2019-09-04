@@ -30,10 +30,9 @@
 		rs = pstmt.executeQuery();
 		
 		if(rs == null){
-			pstmt.close();
-			pstmt = null;
 			sql = "insert into users values(?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
+			System.out.println("1");
 			pstmt.setString(1, userid);
 			pstmt.setString(2, uname);
 			pstmt.setString(3, upassword);

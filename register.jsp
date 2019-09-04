@@ -80,7 +80,7 @@ section {
 	vertical-align: middle;
 	width: 100%;
 	margin-top: 3%;
-	margin-bottom: 30%;
+	margin-bottom: 15%;
 }
 
 .content form {
