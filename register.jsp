@@ -144,30 +144,30 @@ section {
 						
 						<div class="labelText">
 							<label for="uname"><b>이름</b></label>
-						</div> 
-						<input type="text" placeholder="이름을 입력하세요." name="uname" required> 
+						</div>
+						<input type="text" name="uname" placeholder="이름을 입력하세요." required> 
 						<div class="labelText">
 							<label for="userid"><b>아이디</b></label>
 						</div> 
-						<input type="text" placeholder="아이디를 입력하세요." name="userid" required> 
+						<input type="text" name="userid" placeholder="아이디를 입력하세요." required> 
 						<div class="labelText">
 							<label for="psw"><b>비밀번호</b></label>
 						</div> 
-						<input type="password" placeholder="비밀번호를 입력하세요." name="upassword" id="pwd1" required> 
+						<input type="password" name="upassword" placeholder="비밀번호를 입력하세요." id="pwd1" required> 
 						<div class="labelText">
 							<label for="psw-repeat"><b>비밀번호 확인</b></label>
 						</div> 
-						<input type="password" placeholder="비밀번호를 다시 입력해주세요." name="psw-repeat" id="pwd2" required>
+						<input type="password" name="psw-repeat" placeholder="비밀번호를 다시 입력해주세요." id="pwd2" required>
 						<div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
 						<div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
 						<div class="labelText" style="margin-top: 5px;">
 							<label for="uaddress"><b>주소</b></label>
 						</div> 
-						<input type="text" placeholder="주소를 입력하세요." name="uaddress"> 
+						<input type="text" name="uaddress" placeholder="주소를 입력하세요."> 
 						<div class="labelText">
 							<label for="utelnum"><b>전화번호</b></label>
 						</div> 
-						<input type="text" placeholder="전화번호를 입력하세요." name="utelnum"> 
+						<input type="text" name="utelnum" placeholder="전화번호를 입력하세요."> 
 						
 						<hr>
 						<button type="submit" class="registerbtn" id="submit">가입하기</button>

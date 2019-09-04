@@ -7,8 +7,11 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String userid = request.getParameter("userid");
+	System.out.println(userid);
 	String uname = request.getParameter("uname");
+	System.out.println(uname);
 	String upassword = request.getParameter("upassword");
+	System.out.println(upassword);
 	String uaddress = request.getParameter("uaddress");
 	String utelnum = request.getParameter("utelnum");
 
