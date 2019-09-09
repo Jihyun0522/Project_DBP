@@ -1,63 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<style>
-body {
-	width: 100%;
-	text-align: center;
-}
-
-input[type=text], input[type=password] {
-	width: 100%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
-}
-
-button {
-	background-color: #4CAF50;
-	color: white;
-	padding: 14px 20px;
-	margin: 8px 0;
-	border: none;
-	cursor: pointer;
-	width: 100%;
-}
-
-button:hover {
-	opacity: 0.8;
-}
-
-.cancelbtn {
-	width: auto;
-	padding: 10px 18px;
-	background-color: #f44336;
-}
-
-.registerbtn {
-	width: auto;
-	padding: 10px 18px;
-	background-color: #4f8be0;
-}
-
-.container {
-	padding: 16px;
-}
-
-.content {
-	width: 50%;
-	margin: 0 auto;
-	text-align: center;
-}
-
-form {
-	border: 3px solid #f1f1f1;
-	text-align: center;
-	vertical-align: middle;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="login.css"/>
 <body>
 	<div class="content">
 		<form action="loginPost.jsp" method="post" >
@@ -70,7 +14,7 @@ form {
 				<button type="submit">로그인</button>
 			</div>
 
-			<div class="container" style="background-color: #f1f1f1">
+			<div class="container" style="background-color: rgba(173, 173, 173, 0.5);">
 				<button type="button" class="registerbtn" onclick = "location.href ='register.jsp'">회원가입</button>
 				<button type="reset" class="cancelbtn">취소</button>
 			</div>

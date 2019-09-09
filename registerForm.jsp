@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <style>
+body {
+	background:url('img/cactus1.jpg') center center/cover no-repeat;
+}
+
 /* Add padding to containers */
 .container {
   padding: 20px;
-  background-color: white;
+  background-color: rgba( 255, 255, 255, 0.5);
 }
 
 /* Full-width input fields */
@@ -51,20 +55,22 @@ a {
 
 /* Set a grey background color and center the text of the "sign in" section */
 .signin {
-  background-color: #f1f1f1;
-  text-align: center;
+	background-color: rgba(173, 173, 173, 0.5);
+  	text-align: center;
 }
 
 .content {
-	width: 55%;
+	width: 65%;
 	margin: 0 auto;
 	text-align: center;
+	position: relative;
 }
 
 form {
 	border: 3px solid #f1f1f1;
 	text-align: center;
 	vertical-align: middle;
+	background-color: rgba( 255, 255, 255, 0.5);
 }
 
 .labelText {
@@ -112,7 +118,7 @@ form {
 		<form action="registerProc.jsp" method="post">
 			<div class="container">
 				<h1>회원가입</h1>
-				<p>등록된 개인정보는 회원님의 동의 없이 공개되지 않습니다.</p>
+				<p>개인정보는 회원님의 동의 없이 공개되지 않습니다.</p>
 				<hr>
 				
 				<div class="labelText">

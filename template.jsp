@@ -7,19 +7,16 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <style>
-/* section {
-	position: relative;
-	height: auto;
+body{
+	margin: 0;
 }
 
-.content {
-	position: absolute;
-	top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} */
 #wapper {
 	min-height: 100%;
+}
+
+section {
+	margin: 4% 0;
 }
 </style>
 <div id="wapper">
@@ -31,6 +28,4 @@
 			<jsp:include page="<%=contentPage %>" flush="false" />
 		</div>
 	</section>
-	<footer>
-	</footer>
 </div>
