@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 
 <title>미산</title>
-<link rel="stylesheet" type="text/css" href="main.css"/>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <jsp:forward page="template.jsp">

@@ -1,23 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<title>미산</title>
-<link rel="stylesheet" type="text/css" href="../main.css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <style>
-body {
-	width: 100%;
-	text-align: center;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 /* Add padding to containers */
 .container {
-  padding: 16px;
+  padding: 20px;
   background-color: white;
 }
 
@@ -70,20 +56,12 @@ a {
 }
 
 .content {
-	width: 40%;
+	width: 55%;
 	margin: 0 auto;
 	text-align: center;
 }
 
-section {
-	text-align: center;
-	vertical-align: middle;
-	width: 100%;
-	margin-top: 3%;
-	margin-bottom: 15%;
-}
-
-.content form {
+form {
 	border: 3px solid #f1f1f1;
 	text-align: center;
 	vertical-align: middle;

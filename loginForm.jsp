@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<title>미산</title>
-<link rel="stylesheet" type="text/css" href="../main.css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <style>
 body {
 	width: 100%;
@@ -51,12 +47,12 @@ button:hover {
 }
 
 .content {
-	width: 30%;
+	width: 50%;
 	margin: 0 auto;
 	text-align: center;
 }
 
-.content form {
+form {
 	border: 3px solid #f1f1f1;
 	text-align: center;
 	vertical-align: middle;
@@ -67,7 +63,7 @@ button:hover {
 		<form action="loginPost.jsp" method="post" >
 			<div class="container">
 				<label for="userid"><b>아이디</b></label> 
-				<input type="text" placeholder="아이디를 입력하세요." name="userid" required> 
+				<input type="text" placeholder="아이디를 입력하세요." name="userid" required><br> 
 				<label for="psw"><b>비밀번호</b></label> 
 				<input type="password" placeholder="비밀번호를 입력하세요." name="upassword" required>
 
