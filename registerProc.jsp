@@ -19,28 +19,19 @@
 		String url = "jdbc:oracle:thin:@localhost:1521:XE";
 		String user = "mirim3501";
 		String pass = "3501";
-		System.out.println("1");
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		conn = DriverManager.getConnection(url, user, pass);
-		System.out.println("2");
 		
 		String sql = "select * from users where userid = ?";
-		System.out.println("2-1");
 		pstmt = conn.prepareStatement(sql);
-		System.out.println("2-2");
 		pstmt.setString(1, userid);
-		System.out.println("2-3");
 		rs = pstmt.executeQuery();
-		System.out.println("2-4");
 		System.out.println(rs.next());
-		System.out.println("3");
 		
 		if(rs.next() == false){
 			sql = "insert into users values(?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
-			System.out.println("4");
-			
 			pstmt.setString(1, userid);
 			pstmt.setString(2, uname);
 			pstmt.setString(3, upassword);
@@ -48,7 +39,6 @@
 			pstmt.setString(5, utelnum);
 			pstmt.setString(6, type);
 			su = pstmt.executeUpdate();
-			System.out.println("5");
 		}//rs == null
 	} catch(Exception e){
 		e.printStackTrace();
