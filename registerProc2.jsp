@@ -1,4 +1,7 @@
-<%@page import="java.sql.*"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -9,34 +12,30 @@
 	String uaddress = request.getParameter("uaddress");
 	String utelnum = request.getParameter("utelnum");
 	String type = "member";
-	
+
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	int su = 0;
 	
 	try {
-		String url = "jdbc:oracle:thin:@localhost:1521:XE";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "mirim3501";
 		String pass = "3501";
 		System.out.println("1");
 		
 		Class.forName("oracle.jdbc.driver.OracleDriver");
-		conn = DriverManager.getConnection(url, user, pass);
+		DriverManager.getConnection(url, user, pass);
 		System.out.println("2");
 		
-		String sql = "select * from users where userid = ?";
-		System.out.println("2-1");
+		String sql = "select userid from users where userid = ?";
 		pstmt = conn.prepareStatement(sql);
-		System.out.println("2-2");
 		pstmt.setString(1, userid);
-		System.out.println("2-3");
 		rs = pstmt.executeQuery();
-		System.out.println("2-4");
 		System.out.println(rs.next());
 		System.out.println("3");
 		
-		if(rs.next() == false){
+		if(!(rs.next())){
 			sql = "insert into users values(?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			System.out.println("4");
