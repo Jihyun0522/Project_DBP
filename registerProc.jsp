@@ -61,11 +61,11 @@
 		}//if
 		
 		if(su == 1){
-			out.println("<script>alert('회원가입이 성공적으로 되었습니다!');</script>");
-			out.println("<script>location.href = 'login.jsp';</script>");
+			out.println("<script>alert('회원가입이 성공적으로 되었습니다!');");
+			out.println("location.href = 'login.jsp';</script>");
 		} else {
-			out.println("<script>alert('회원가입에 실패하였습니다....');</script>");
-			out.println("<script>location.href = 'register.jsp';</script>");
+			out.println("<script>alert('회원가입에 실패하였습니다....');");
+			out.println("location.href = 'register.jsp';</script>");
 		}
 	}
 %>
