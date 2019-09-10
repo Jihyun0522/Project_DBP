@@ -21,13 +21,14 @@
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		conn = DriverManager.getConnection(url, user, pass);
 		
-		String sql = "select upassword from users where userid = ?";
+		String sql = "select * from users where userid = ?";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, userid);
 		rs = pstmt.executeQuery();
 		
-		if(rs.next()){
+		if(rs.next() == true){
 			String rPasswd = rs.getString("upassword");
+			String uname = rs.getString("uname");
 			
 			if(upassword.equals(rPasswd)){
 				session.setAttribute("userid", userid);

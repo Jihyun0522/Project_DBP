@@ -27,7 +27,7 @@
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, userid);
 		rs = pstmt.executeQuery();
-		
+			
 		if(rs.next() == false){
 			sql = "insert into users values(?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
