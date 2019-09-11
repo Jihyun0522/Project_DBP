@@ -23,9 +23,8 @@
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		conn = DriverManager.getConnection(url, user, pass);
 		
-		String sql = "select * from users where userid = ?";
+		String sql = "select * from users where userid = '" + userid + "'";
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, userid);
 		rs = pstmt.executeQuery();
 		
 		if(rs.next() == false){

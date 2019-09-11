@@ -21,22 +21,13 @@
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		conn = DriverManager.getConnection(url, user, pass);
 		
-		String sql = "select * from users where userid = '" + userid + "'";
+		String name = "hyun";
+		String sql = "select * from users where userid = '" + name + "'" ;
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		
-		if(rs.next()){
-			String rPasswd = rs.getString(3);
-			
-			if(upassword.equals(rPasswd)){
-				session.setAttribute("userid", userid);
-				session.setAttribute("upassword", upassword);
-				su = 1;
-			}else {
-				str = "비밀번호를 확인해주세요.";
-			}
-		}else {
-			str = "아이디가 존재하지 않습니다.";
+		while(rs.next()){
+			out.println(rs.getString(3));
 		}
 	} catch (Exception e) {
 		e.printStackTrace();
@@ -52,13 +43,5 @@
 		if(conn != null){
 			try{ conn.close(); } catch(Exception e){ }
 		}//if
-		
-		if(su == 1){
-			out.println("<script>alert('로그인 되었습니다!');");
-			out.println("location.href = 'main.jsp';</script>");
-		} else {
-			out.println("<script>alert('" + str + "');");
-			out.println("location.href = 'login.jsp';</script>");
-		}
 	}
 %>
