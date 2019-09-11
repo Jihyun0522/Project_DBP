@@ -26,9 +26,9 @@
 		rs = pstmt.executeQuery();
 		
 		if(rs.next()){
-			String rPasswd = rs.getString(3);
+			String rPasswd = rs.getString("upassword");
 			
-			if(upassword.equals(rPasswd)){
+			if(rPasswd.equals(upassword)){
 				session.setAttribute("userid", userid);
 				session.setAttribute("upassword", upassword);
 				su = 1;

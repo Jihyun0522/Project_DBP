@@ -26,7 +26,7 @@
 		String sql = "select * from users where userid = '" + userid + "'";
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
-		
+			
 		if(rs.next() == false){
 			sql = "insert into users values(?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
