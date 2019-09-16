@@ -26,7 +26,7 @@ li {
 	margin-right: 10px;
 }
 
-.topli a, .topli_right a {
+.topli a, .topli_right{
     display: block;
     color: #777;
     text-align: center;

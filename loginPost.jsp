@@ -28,9 +28,11 @@
 		if(rs.next()){
 			String rPasswd = rs.getString("upassword");
 			
-			if(rPasswd.equals(upassword)){
-				session.setAttribute("userid", userid);
-				session.setAttribute("upassword", upassword);
+			if(rPasswd.equals(rs.getString(3))){
+				session.setAttribute("userid", rs.getString(1));
+				session.setAttribute("uname", rs.getString(2));
+				session.setAttribute("upassword", rs.getString(3));
+				session.setAttribute("utype", rs.getString(6));
 				su = 1;
 			}else {
 				str = "비밀번호를 확인해주세요.";

@@ -1,6 +1,7 @@
 DROP TABLE PLANT_ADMIN;
 DROP TABLE USERS;
 DROP SEQUENCE SEQ_NUMP;
+DROP VIEW plant_view;
 
 CREATE TABLE PLANT_ADMIN 
 (
@@ -60,3 +61,9 @@ commit;
 
 INSERT INTO USERS (USERID, UNAME, UPASSWORD, UTYPE) VALUES ('admin', N'admin', 'admin', 'admin');
 commit;
+
+CREATE VIEW PLANT_VIEW
+AS SELECT 
+    pNum, pName, pPrice, pAmount
+FROM 
+    plant_admin;
