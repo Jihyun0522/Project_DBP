@@ -48,6 +48,7 @@ th {
 	<div class="content" style="text-align: center; margin-top:3%;">
 		<%
 			request.setCharacterEncoding("UTF-8");
+			String utype = (String)session.getAttribute("utype");
 			
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -63,7 +64,7 @@ th {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				conn = DriverManager.getConnection(url, user, pass);
 				
-				String sql = "select count(*) from plant_view";
+				String sql = "select count(*) from users";
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				
@@ -71,36 +72,54 @@ th {
 					total = rs.getInt(1);
 				}
 				
-				sql = "select * from plant_view";
+				sql = "select * from users";
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 		%>
-			<h2>식물</h2>
+			<h2>회원정보</h2>
 			<table style="margin-left: auto; margin-right: auto; text-align: center;">
 				<tr>
-					<th>번호</th>
+					<th>아이디</th>
 					<th>이름</th>
-					<th>가격</th>
-					<th>수량</th>
+					<th>비밀번호</th>
+					<th>주소</th>
+					<th>전화번호</th>
+					<th>회원유형</th>
 				</tr>
 				<%if(total == 0) { %>
-				<tr><td>식물이 존재하지 않습니다.</td></tr>
+				<tr><td>회원이 존재하지 않습니다.</td></tr>
 				<%} else { 
 					while(rs.next()){
 						out.print("<tr>");
-						out.print("<td>" + rs.getInt(1) + "</td>");
+						out.print("<td>" + rs.getString(1) + "</td>");
 						out.print("<td>" + rs.getString(2) + "</td>");
-						out.print("<td>" + rs.getInt(3) + "</td>");
-						out.print("<td>" + rs.getInt(4) + "</td>");
+						out.print("<td>" + rs.getString(3) + "</td>");
+						out.print("<td>" + rs.getString(4) + "</td>");
+						out.print("<td>" + rs.getString(5) + "</td>");
+						out.print("<td>" + rs.getString(6) + "</td>");
+						String type = rs.getString(6);
 						
-						if(rs.getInt(4) > 0) {
-							out.print("<td>" + "<form method='post' action='objBuy.jsp'>"
-							+ "<input type='number' name='amount' min='1' max='" + rs.getInt(4) + "' required>&nbsp;"
-							+ "<input type='hidden' name='num' value='" + rs.getInt(1) + "'>"
-							+ "<input type='hidden' name='price' value='" + rs.getInt(3) + "'>"
-							+ "<input type='submit' value='구매' class='btn'></form>" + "</td>");
+						if(type.equalsIgnoreCase("member")) {
+							if(type.equals("admin")){
+								out.print("<td>" + "<form method='post' action='grant.jsp'>"
+										+ "<input type='hidden' name='userid' value='" + rs.getString(1) + "'>"
+										+ "<input type='submit' value='권한부여' class='btn'></form>" + "</td>");
+							}
+							out.print("<td>" + "<form method='post' action='Mdelete.jsp'>"
+									+ "<input type='hidden' name='userid' value='" + rs.getString(1) + "'>"
+									+ "<input type='submit' value='삭제' class='btn'></form>" + "</td>");
+							
+						} else if (rs.getString(6).equals("Smem")){
+							if(type.equals("admin")){
+								out.print("<td>" + "<form method='post' action='revoke.jsp'>"
+										+ "<input type='hidden' name='userid' value='" + rs.getString(1) + "'>"
+										+ "<input type='submit' value='권한회수' class='btn'></form>" + "</td>");
+							}
+							out.print("<td>" + "<form method='post' action='Mdelete.jsp'>"
+									+ "<input type='hidden' name='userid' value='" + rs.getString(1) + "'>"
+									+ "<input type='submit' value='삭제' class='btn'></form>" + "</td>");
 						} else {
-							out.print("<td>" + "수량없음" + "</td>");
+							out.print("<td>" + "관계없음." + "</td>");
 						}
 						out.print("</tr>");
 					}

@@ -13,13 +13,15 @@ body {
 
 table, td, th {
   border: 1px solid black;
-  height: 30px;
+  height: 25px;
   background-color: rgba( 255, 255, 255, 0.8);
 }
 
 table {
   border-collapse: collapse;
   width: 60%;
+  text-align: center;
+  margin:auto;
 }
 
 th {
@@ -36,10 +38,27 @@ th {
   border: 2px solid #008CBA;
   height: 28px;
   width: 40px;
+  margin-top:8px;
 }
 
 .btn:hover {
   background-color: #008CBA;
+  color: white;
+}
+
+button {
+  background-color: white; 
+  color: black;
+  padding: 2px 5px;
+  text-align: center;
+  text-decoration: none; 
+  height: 28px;
+  width: 100px;
+  border: 2px solid #4CAF50;
+}
+
+button:hover {
+  background-color: #4CAF50;
   color: white;
 }
 </style>
@@ -48,6 +67,7 @@ th {
 	<div class="content" style="text-align: center; margin-top:3%;">
 		<%
 			request.setCharacterEncoding("UTF-8");
+			String utype = (String)session.getAttribute("utype");
 			
 			Connection conn = null;
 			PreparedStatement pstmt = null;
@@ -63,7 +83,7 @@ th {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				conn = DriverManager.getConnection(url, user, pass);
 				
-				String sql = "select count(*) from plant_view";
+				String sql = "select count(*) from plant_admin";
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				
@@ -71,7 +91,7 @@ th {
 					total = rs.getInt(1);
 				}
 				
-				sql = "select * from plant_view";
+				sql = "select pnum, pname, pPrice, pamount, psum from plant_admin";
 				pstmt = conn.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 		%>
@@ -79,9 +99,11 @@ th {
 			<table style="margin-left: auto; margin-right: auto; text-align: center;">
 				<tr>
 					<th>번호</th>
-					<th>이름</th>
-					<th>가격</th>
-					<th>수량</th>
+					<th>식물이름</th>
+					<th>개당 가격</th>
+					<th>개수</th>
+					<th>합계</th>
+					<th colspan="2"><button type="button" class="registerbtn" onclick = "location.href ='add.jsp'">식물추가</button></th>
 				</tr>
 				<%if(total == 0) { %>
 				<tr><td>식물이 존재하지 않습니다.</td></tr>
@@ -92,16 +114,15 @@ th {
 						out.print("<td>" + rs.getString(2) + "</td>");
 						out.print("<td>" + rs.getInt(3) + "</td>");
 						out.print("<td>" + rs.getInt(4) + "</td>");
+						out.print("<td>" + rs.getInt(5) + "</td>");
 						
-						if(rs.getInt(4) > 0) {
-							out.print("<td>" + "<form method='post' action='objBuy.jsp'>"
-							+ "<input type='number' name='amount' min='1' max='" + rs.getInt(4) + "' required>&nbsp;"
-							+ "<input type='hidden' name='num' value='" + rs.getInt(1) + "'>"
-							+ "<input type='hidden' name='price' value='" + rs.getInt(3) + "'>"
-							+ "<input type='submit' value='구매' class='btn'></form>" + "</td>");
-						} else {
-							out.print("<td>" + "수량없음" + "</td>");
-						}
+						out.print("<td>" + "<form method='post' action='update.jsp'>"
+								+ "<input type='hidden' name='pnum' value='" + rs.getInt(1) + "'>"
+								+ "<input type='submit' value='수정' class='btn'></form>" + "</td>");
+						out.print("<td>" + "<form method='post' action='Pdelete.jsp'>"
+									+ "<input type='hidden' name='pnum' value='" + rs.getInt(1) + "'>"
+									+ "<input type='submit' value='삭제' class='btn'></form>" + "</td>");
+							
 						out.print("</tr>");
 					}
 				}
