@@ -51,7 +51,7 @@ BEGIN
 END;
 /
 
-CREATE OR REPLACE FUNCTION num_sump (price number, amount number)
+    CREATE OR REPLACE FUNCTION num_sump (price number, amount number)
 RETURN NUMBER
 IS  
    sumP number := 0;   
