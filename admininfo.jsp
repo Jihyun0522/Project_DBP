@@ -100,7 +100,7 @@ th {
 						String type = rs.getString(6);
 						
 						if(type.equalsIgnoreCase("member")) {
-							if(type.equals("admin")){
+							if(type.trim().equals("admin")){
 								out.print("<td>" + "<form method='post' action='grant.jsp'>"
 										+ "<input type='hidden' name='userid' value='" + rs.getString(1) + "'>"
 										+ "<input type='submit' value='권한부여' class='btn'></form>" + "</td>");

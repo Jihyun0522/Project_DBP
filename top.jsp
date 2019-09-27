@@ -7,8 +7,7 @@
 	request.setCharacterEncoding("UTF-8");
 	String utype = (String)session.getAttribute("utype");
 	String uname = (String)session.getAttribute("uname");
-	System.out.println(utype);
-	String type = "member";
+	if(utype !=null) utype = utype.trim();
 %>
 <ul class="top_ul">
 	<li class="toplogo"><a href="main.jsp">美山</a></li>
@@ -19,7 +18,7 @@
 		if(utype == null){
 	%>
 		<li class="topli_right"><a href="login.jsp">LOGIN</a></li>
-	<% } else if(utype.equalsIgnoreCase("member")){ %>
+	<% } else if(utype.equals("member")){ %>
 		<li class="topli_right"><a href="logout.jsp">LOGOUT</a></li>
 		<li class="topli_right"><a href="buyM.jsp">BUY</a></li>
 		<li class="topli_right"><a href="infoM.jsp">INFO</a></li>

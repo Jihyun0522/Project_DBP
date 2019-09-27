@@ -26,7 +26,8 @@
 		pstmt.setString(1, pname);
 		pstmt.setInt(2, pPrice);
 		pstmt.setInt(3, pamount);
-		pstmt.setInt(4, psum);
+		if (psum > 0) pstmt.setInt(4, psum);
+		else pstmt.setInt(4, pPrice * pamount);
 		pstmt.setInt(5, pnum);
 		su = pstmt.executeUpdate();
 		
